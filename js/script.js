@@ -1,4 +1,4 @@
-import { buildBible } from "./modules/build-book-list.js"
+import { buildBible } from "./modules/build-bible.js"
 import { LOCAL_PREFIX } from "./modules/consts/local-prefix.js"
 import { hideScrollbar } from "./modules/hide-scrollbar.js"
 import { loading } from "./modules/loader.js"

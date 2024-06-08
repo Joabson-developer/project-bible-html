@@ -260,12 +260,18 @@ body:has(.l-header__user--fixed) {
   justify-content: space-between;
   gap: 8px;
   transition: 1s;
+  max-width: 100%;
 }
 .l-header__user:not(.l-header__user--fixed) {
   margin-bottom: 24px;
 }
 .l-header__user .l-header__logo {
   max-height: 40px;
+}
+@media (width > 440px) {
+  .l-header__user .c-search {
+    margin-left: auto;
+  }
 }
 .l-header__user--fixed {
   position: fixed;
@@ -331,6 +337,32 @@ body:has(.l-header__user--fixed) {
 .l-loader span {
   position: absolute;
   opacity: 0;
+}
+
+.l-nav-footer {
+  margin-top: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.l-nav-footer__button {
+  border: none;
+  background: none;
+  font-size: 32px;
+  cursor: pointer;
+  transition: 250ms;
+}
+.l-nav-footer__button:not(:disabled) {
+  color: var(--clr-blue-900);
+}
+.l-nav-footer__button:not(:disabled):hover {
+  color: var(--clr-blue-800);
+}
+.l-nav-footer__button:disabled {
+  cursor: not-allowed;
+}
+.l-nav-footer__book {
+  font-size: 24px;
 }
 
 body {

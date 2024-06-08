@@ -1,0 +1,32 @@
+$name: ".l-nav-footer";
+
+#{$name} {
+  margin-top: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  &__button {
+    border: none;
+    background: none;
+    font-size: 32px;
+    cursor: pointer;
+    transition: 250ms;
+
+    &:not(:disabled) {
+      color: var(--clr-blue-900);
+
+      &:hover {
+        color: var(--clr-blue-800);
+      }
+    }
+
+    &:disabled {
+      cursor: not-allowed;
+    }
+  }
+
+  &__book {
+    font-size: 24px;
+  }
+}
