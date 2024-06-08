@@ -52,7 +52,7 @@ const server = {
   }
 }
 
-const TIMEOUT = 2000
+const TIMEOUT = 0
 
 export async function $fetch(input, init) {
   const matchEndpoint = /\/api\/(.*?)\?/.exec(input)
