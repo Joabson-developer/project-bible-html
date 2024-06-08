@@ -52,6 +52,8 @@ const server = {
   }
 }
 
+const TIMEOUT = 2000
+
 export async function $fetch(input, init) {
   const matchEndpoint = /\/api\/(.*?)\?/.exec(input)
   const endpoint = matchEndpoint[1] || null
@@ -72,7 +74,7 @@ export async function $fetch(input, init) {
         }
 
         reject({ status: 404, message: "Not found" })
-      }, 1000)
+      }, TIMEOUT)
     } catch {
       reject({ status: 404, message: "Not found" })
     }

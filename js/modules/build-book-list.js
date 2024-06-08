@@ -30,11 +30,11 @@ export function buildBible(data) {
       .map(
         ({ abbrev, book_name, chapters }) => `
       <li>
-        <a
+        <button
           class="c-book${
             queryParams.get("book") === abbrev ? " c-book--active" : ""
           }"
-          href="./?version=${queryParams.get(
+          data-href="/?version=${queryParams.get(
             "version"
           )}&book=${abbrev}&chapter=1"
         >
@@ -45,7 +45,7 @@ export function buildBible(data) {
             <span class="c-book__chapters__highlight"> ${chapters} </span> &nbsp;
             capítulos
           </span>
-        </a>
+        </button>
       </li>
       `
       )
@@ -64,7 +64,7 @@ export function buildBible(data) {
       .map(
         (chapter, index) => `
       <li>
-        <a href="./?version=${queryParams.get(
+        <button data-href="/?version=${queryParams.get(
           "version"
         )}&book=${queryParams.get(
           "book"
@@ -72,7 +72,7 @@ export function buildBible(data) {
           Number(queryParams.get("chapter")) === index + 1
             ? " c-chapter--active"
             : ""
-        }">${chapter}</a>
+        }">${chapter}</button>
       </li>
       `
       )
@@ -98,5 +98,13 @@ export function buildBible(data) {
     document.querySelector(".l-main").innerHTML = bibleTextElement
 
     loading(false)
+
+    const bookButtons = document.querySelectorAll(".c-book")
+    const chapterButtons = document.querySelectorAll(".c-chapter")
+
+    return {
+      bookButtons,
+      chapterButtons
+    }
   }
 }

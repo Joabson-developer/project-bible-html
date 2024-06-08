@@ -5,6 +5,8 @@ export function scrollToElement(element) {
   const activeElement =
     typeof element === "string" ? document.querySelector(element) : element
 
+  if (!activeElement) return
+
   if (!register.includes(activeElement.classList[0])) {
     time += 1000
     register.push(activeElement.classList[0])
