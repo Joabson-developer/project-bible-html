@@ -5,6 +5,7 @@ import { loading } from "./modules/loader.js"
 import "./modules/pin-header.js"
 import { $fetch } from "./modules/server/index.js"
 import { detectDevice } from "./modules/utils/detect-device.js"
+import { queryParams } from "./modules/utils/query-params.js"
 import { scrollToElement } from "./modules/utils/scroll-to-element.js"
 
 const BASE_URL = "http://localhost:3000/api"
@@ -15,6 +16,9 @@ function dispatch({ currentTarget }) {
 }
 
 function getBible() {
+  if (!queryParams.get("chapter"))
+    window.location.href = "/?version=acf&book=gn&chapter=1"
+
   const url = window.location.href
   const match = url.split("?")
   const queryParameters = `?${match[1] || ""}`
