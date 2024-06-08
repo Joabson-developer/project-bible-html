@@ -216,6 +216,7 @@ img {
 .l-bible__text {
   line-height: 18px;
   margin-bottom: 4px;
+  text-align: justify;
 }
 .l-bible__text__number {
   vertical-align: super;
