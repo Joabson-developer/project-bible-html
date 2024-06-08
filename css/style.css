@@ -24,6 +24,7 @@ img {
 :root {
   --clr-green--100: #39b826;
   --clr-blue-100: #edf4fc;
+  --clr-blue-500: #88bcf7;
   --clr-blue-600: #70b1f1;
   --clr-blue-800: #398ff2;
   --clr-blue-900: #4960ef;
@@ -218,6 +219,14 @@ img {
   font-size: 10px;
 }
 
+body {
+  padding-bottom: 24px;
+}
+body:has(.l-header__user--fixed) {
+  --heigth-element: 72px;
+  padding-top: var(--heigth-element);
+}
+
 .l-chips {
   display: flex;
   align-items: center;
@@ -250,10 +259,29 @@ img {
   align-items: center;
   justify-content: space-between;
   gap: 8px;
+  transition: 1s;
+}
+.l-header__user:not(.l-header__user--fixed) {
   margin-bottom: 24px;
 }
 .l-header__user .l-header__logo {
   max-height: 40px;
+}
+.l-header__user--fixed {
+  position: fixed;
+  inset: 0 0 auto 0;
+  padding: 16px;
+  background-color: var(--clr-blue-900);
+  z-index: 2;
+  -webkit-box-shadow: 0px 1px 5px 0px rgba(0, 0, 0, 0.5);
+  -moz-box-shadow: 0px 1px 5px 0px rgba(0, 0, 0, 0.5);
+  box-shadow: 0px 1px 5px 0px rgba(0, 0, 0, 0.5);
+}
+.l-header__user--fixed .c-avatar {
+  background-color: var(--clr-blue-100);
+}
+.l-header__user--fixed .c-avatar::after {
+  border-color: var(--clr-blue-900);
 }
 .l-header__nav:not(:first-child) {
   margin-top: 16px;
@@ -311,6 +339,13 @@ body {
   font-family: var(--font-family);
   background-color: var(--clr-blue-100);
   color: var(--clr-dark);
+}
+body::-webkit-scrollbar {
+  width: 0.5rem;
+}
+body::-webkit-scrollbar-thumb {
+  background: linear-gradient(var(--clr-blue-500), var(--clr-blue-900));
+  border-radius: 4px;
 }
 
 /*# sourceMappingURL=style.css.map */

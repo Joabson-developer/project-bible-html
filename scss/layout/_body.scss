@@ -1,0 +1,10 @@
+$name: "body";
+
+#{$name} {
+  padding-bottom: 24px;
+
+  &:has(.l-header__user--fixed) {
+    --heigth-element: 72px;
+    padding-top: var(--heigth-element);
+  }
+}
