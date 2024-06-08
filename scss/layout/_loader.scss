@@ -6,7 +6,8 @@ $name: ".l-loader";
   display: grid;
   place-items: center;
   z-index: 999;
-  background-color: var(--clr-blue-100);
+  background-color: rgba(255, 255, 255, 0.3);
+  backdrop-filter: blur(2px);
 
   span {
     position: absolute;
