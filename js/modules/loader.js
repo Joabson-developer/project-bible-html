@@ -19,4 +19,10 @@ export function loading(condition) {
   } else {
     if (loader) loader.remove()
   }
+
+  // TODO: melhorar essa logica do hide elements no load
+  const loadWrapper = document.querySelector(".s-is-loading")
+  if (loadWrapper) {
+    loadWrapper.classList.remove("s-is-loading")
+  }
 }

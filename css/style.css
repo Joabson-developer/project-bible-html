@@ -199,6 +199,19 @@ img {
   font-family: inherit;
 }
 
+.s-hide-scrollbar {
+  overflow: auto; /* or scroll */
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* Internet Explorer 10+ */
+}
+.s-hide-scrollbar::-webkit-scrollbar {
+  display: none; /* Chrome, Safari, and Opera */
+}
+
+.s-is-loading {
+  display: none;
+}
+
 .l-bible__text__number {
   vertical-align: super;
   font-weight: 900;

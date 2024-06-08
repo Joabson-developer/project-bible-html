@@ -1,7 +1,9 @@
 import { buildBible } from "./modules/build-book-list.js"
 import { LOCAL_PREFIX } from "./modules/consts/local-prefix.js"
+import { hideScrollbar } from "./modules/hide-scrollbar.js"
 import { loading } from "./modules/loader.js"
 import { $fetch } from "./modules/server/index.js"
+import { detectDevice } from "./modules/utils/detect-device.js"
 import { scrollToElement } from "./modules/utils/scroll-to-element.js"
 
 const BASE_URL = "http://localhost:3000/api"
@@ -39,7 +41,11 @@ function getBible() {
     .finally(() => loading(false))
 }
 
-document.addEventListener("DOMContentLoaded", getBible)
+document.addEventListener("DOMContentLoaded", () => {
+  getBible()
+
+  if (detectDevice() === "Mobile") hideScrollbar()
+})
 window.addEventListener("popstate", getBible)
 
 const checkboxBookGroup = document.querySelectorAll('[name="filter-chip"]')

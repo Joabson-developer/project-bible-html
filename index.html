@@ -16,7 +16,8 @@
     <script src="./js/script.js" type="module" defer></script>
   </head>
   <body>
-    <header class="l-header">
+    <!-- TODO: fixar o header com background azul ao rolar a pagina -->
+    <header class="l-header s-is-loading">
       <div class="l-header__user l-container">
         <img
           class="l-header__logo"
@@ -72,17 +73,17 @@
 
         <ul class="l-header__nav__books l-container--lg">
           <!-- <li>
-            <button class="c-book" data-href="./?version=arc&book=gn&chapter=1">
-              <h3 class="c-book__title">
-                <i class="fa-solid fa-book-bible"></i>
-                <span class="c-book__title__book-name">GÊNESIS</span>
-              </h3>
-              <span class="c-book__chapters">
-                <span class="c-book__chapters__highlight"> 27 </span> &nbsp;
-                capítulos
-              </span>
-            </button>
-          </li> -->
+              <button class="c-book" data-href="./?version=arc&book=gn&chapter=1">
+                <h3 class="c-book__title">
+                  <i class="fa-solid fa-book-bible"></i>
+                  <span class="c-book__title__book-name">GÊNESIS</span>
+                </h3>
+                <span class="c-book__chapters">
+                  <span class="c-book__chapters__highlight"> 27 </span> &nbsp;
+                  capítulos
+                </span>
+              </button>
+            </li> -->
         </ul>
       </nav>
 
@@ -91,33 +92,37 @@
 
         <ul class="l-header__nav__chapters l-container--lg">
           <!-- <li>
-            <a
-              href="./?version=arc&book=gn&chapter=1"
-              aria-describedby="chapter"
-              class="c-chapter c-chapter--active"
-            >
-              1
-            </a>
-          </li> -->
+              <a
+                href="./?version=arc&book=gn&chapter=1"
+                aria-describedby="chapter"
+                class="c-chapter c-chapter--active"
+              >
+                1
+              </a>
+            </li> -->
         </ul>
       </nav>
     </header>
 
     <main class="l-main l-container">
       <!-- <h1 class="l-main__title">Gênesis</h1>
-
-      <div class="l-bible">
-        <p class="l-bible__text">
-          <strong class="l-bible__text__number">1</strong> No princípio criou
-          Deus o céu e a terra.
-        </p>
-        <p class="l-bible__text">
-          <strong class="l-bible__text__number">2</strong> E a terra era sem
-          forma e vazia; e havia trevas sobre a face do abismo; e o Espírito de
-          Deus se movia sobre a face das águas.
-        </p>
-      </div> -->
+  
+        <div class="l-bible">
+          <p class="l-bible__text">
+            <strong class="l-bible__text__number">1</strong> No princípio criou
+            Deus o céu e a terra.
+          </p>
+          <p class="l-bible__text">
+            <strong class="l-bible__text__number">2</strong> E a terra era sem
+            forma e vazia; e havia trevas sobre a face do abismo; e o Espírito de
+            Deus se movia sobre a face das águas.
+          </p>
+        </div> -->
     </main>
+
+    <!-- TODO: criar um announcer -->
+
+    <!-- TODO: criar a splashscreen -->
 
     <div
       id="loader"
@@ -129,9 +134,5 @@
       <div class="c-loader" aria-hidden="true"></div>
       <span>Carregando, por favor aguarde...</span>
     </div>
-
-    <!-- TODO: criar um announcer -->
-
-    <!-- TODO: criar a splashscreen -->
   </body>
 </html>
