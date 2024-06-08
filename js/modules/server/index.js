@@ -64,7 +64,11 @@ export async function $fetch(input, init) {
     try {
       setTimeout(async () => {
         if (endpoint in server) {
-          const data = await server[endpoint]({ version, chapter, book })
+          const data = await server[endpoint]({
+            version,
+            chapter,
+            book: decodeURIComponent(book)
+          })
 
           if (data.status === 404) reject(data)
 
