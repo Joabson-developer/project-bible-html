@@ -6,4 +6,12 @@ body {
   font-family: var(--font-family);
   background-color: var(--clr-blue-100);
   color: var(--clr-dark);
+
+  &::-webkit-scrollbar {
+    width: 0.5rem;
+  }
+  &::-webkit-scrollbar-thumb {
+    background: linear-gradient(var(--clr-blue-500), var(--clr-blue-900));
+    border-radius: 4px;
+  }
 }

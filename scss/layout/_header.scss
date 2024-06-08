@@ -8,10 +8,31 @@ $name: ".l-header";
     align-items: center;
     justify-content: space-between;
     gap: 8px;
-    margin-bottom: 24px;
+    transition: 1s;
+
+    &:not(&--fixed) {
+      margin-bottom: 24px;
+    }
 
     #{$name}__logo {
       max-height: 40px;
+    }
+
+    &--fixed {
+      position: fixed;
+      inset: 0 0 auto 0;
+      padding: 16px;
+      background-color: var(--clr-blue-900);
+      z-index: 2;
+      @include box-shadow(0px 1px 5px 0px rgba(0, 0, 0, 0.5));
+
+      .c-avatar {
+        background-color: var(--clr-blue-100);
+
+        &::after {
+          border-color: var(--clr-blue-900);
+        }
+      }
     }
   }
 
