@@ -1,0 +1,302 @@
+@charset "UTF-8";
+@import url("https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+ul {
+  list-style: none;
+}
+
+img {
+  max-width: 100%;
+}
+
+:root {
+  --clr-green--100: #39b826;
+  --clr-blue-100: #edf4fc;
+  --clr-blue-600: #70b1f1;
+  --clr-blue-800: #398ff2;
+  --clr-blue-900: #4960ef;
+  --clr-yellow: #f7d917;
+  --clr-white: #ffffff;
+  --clr-dark: #333333;
+  --font-family: Arial, sans-serif;
+}
+
+.c-avatar {
+  display: grid;
+  place-items: center;
+  border: 1px solid var(--clr-blue-600);
+  border-radius: 50%;
+  width: 40px;
+  aspect-ratio: 1/1;
+  padding: 4px;
+  position: relative;
+}
+.c-avatar img {
+  object-fit: cover;
+  border-radius: 50%;
+}
+.c-avatar::after {
+  content: "";
+  width: 8px;
+  aspect-ratio: 1/1;
+  border-radius: 50%;
+  background-color: var(--clr-green--100);
+  position: absolute;
+  top: -3px;
+  right: -3px;
+  border: 3px solid var(--clr-blue-100);
+}
+
+.c-book {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: var(--clr-white);
+  border: none;
+  padding: 8px;
+  border-radius: 16px;
+  color: inherit;
+  font-family: var(--font-family);
+  cursor: pointer;
+  transition: all 250ms ease;
+}
+.c-book__title {
+  font-weight: 900;
+  text-align: center;
+}
+.c-book__title i {
+  font-size: 24px;
+  display: block;
+  margin-bottom: 4px;
+}
+.c-book__title__book-name {
+  text-wrap: nowrap;
+  text-transform: uppercase;
+}
+.c-book:not(.c-book--active) .c-book__chapters {
+  color: var(--clr-white);
+  background-color: var(--clr-blue-800);
+  font-weight: 700;
+}
+.c-book__chapters {
+  display: flex;
+  font-size: 10px;
+  padding: 2px 6px;
+  border-radius: 16px;
+  margin-top: 8px;
+  text-wrap: nowrap;
+  font-weight: 900;
+}
+.c-book.c-book--active, .c-book:hover {
+  background: var(--clr-blue-900);
+  background-image: linear-gradient(90deg, var(--clr-blue-900) 0%, var(--clr-blue-800) 100%);
+  color: var(--clr-white);
+}
+.c-book.c-book--active .c-book__chapters, .c-book:hover .c-book__chapters {
+  background-color: var(--clr-yellow);
+  color: initial;
+}
+
+.c-chapter {
+  border: none;
+  width: 32px;
+  aspect-ratio: 1/1;
+  border-radius: 4px;
+  background: var(--clr-white);
+  cursor: pointer;
+  transition: all 250ms ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.c-chapter.c-chapter--active, .c-chapter:hover {
+  background: var(--clr-blue-900);
+  background-image: linear-gradient(90deg, var(--clr-blue-900) 0%, var(--clr-blue-800) 100%);
+  color: var(--clr-white);
+}
+.c-chapter.c-chapter--active .c-chapter__chapters, .c-chapter:hover .c-chapter__chapters {
+  background-color: var(--clr-yellow);
+  color: initial;
+}
+
+.c-chip {
+  position: relative;
+  background-color: var(--clr-white);
+  padding: 2px 8px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+.c-chip:has(input:focus-visible) {
+  outline: -webkit-focus-ring-color auto 1px;
+}
+.c-chip:has(input:checked), .c-chip:hover {
+  background: var(--clr-blue-900);
+  background-image: linear-gradient(90deg, var(--clr-blue-900) 0%, var(--clr-blue-800) 100%);
+  color: var(--clr-white);
+}
+.c-chip input {
+  opacity: 0;
+  position: absolute;
+}
+
+.c-loader {
+  --d: 22px;
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  color: var(--clr-blue-800);
+  box-shadow: calc(1 * var(--d)) calc(0 * var(--d)) 0 0, calc(0.707 * var(--d)) calc(0.707 * var(--d)) 0 1px, calc(0 * var(--d)) calc(1 * var(--d)) 0 2px, calc(-0.707 * var(--d)) calc(0.707 * var(--d)) 0 3px, calc(-1 * var(--d)) calc(0 * var(--d)) 0 4px, calc(-0.707 * var(--d)) calc(-0.707 * var(--d)) 0 5px, calc(0 * var(--d)) calc(-1 * var(--d)) 0 6px;
+  animation: l27 1s infinite steps(8);
+  user-select: none;
+}
+
+@keyframes l27 {
+  100% {
+    transform: rotate(1turn);
+  }
+}
+.c-search {
+  display: flex;
+  align-items: center;
+  background-color: var(--clr-white);
+  padding: 8px 16px;
+  border-radius: 16px;
+  gap: 4px;
+  overflow: hidden;
+}
+.c-search:has(input:focus-visible) {
+  outline: -webkit-focus-ring-color auto 1px;
+}
+.c-search:has(input:focus-visible) .c-search__input {
+  translate: -20px;
+}
+.c-search:has(input:focus-visible) [for=search] {
+  translate: -30px;
+}
+.c-search__input,
+.c-search [for=search] {
+  transition: all 250ms ease;
+}
+.c-search__input {
+  border: none;
+  outline: none;
+  font-family: var(--font-family);
+  font-weight: 600;
+}
+.c-search__input::placeholder {
+  font-family: inherit;
+}
+
+.l-bible__text__number {
+  vertical-align: super;
+  font-weight: 900;
+  font-size: 10px;
+}
+
+.l-chips {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  position: relative;
+}
+.l-chips fieldset {
+  position: absolute;
+  opacity: 0;
+}
+
+.l-container {
+  margin-inline: auto;
+  padding-inline: 16px;
+  max-width: 1024px;
+}
+
+@media (width > 1024px) {
+  .l-container--lg {
+    margin-inline: auto;
+    max-width: 1024px;
+  }
+}
+
+.l-header {
+  padding-block: 16px;
+}
+.l-header__user {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  margin-bottom: 24px;
+}
+.l-header__user .l-header__logo {
+  max-height: 40px;
+}
+.l-header__nav:not(:first-child) {
+  margin-top: 16px;
+}
+.l-header__nav__header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.l-header__nav__title {
+  font-weight: 900;
+  font-size: 20px;
+}
+.l-header__nav__books, .l-header__nav__chapters {
+  display: flex;
+  gap: 16px;
+  padding-block: 4px;
+  margin-top: 8px;
+  /* Estilos gerais para todos os navegadores */
+  -ms-overflow-style: none; /* Internet Explorer e Edge */
+  scrollbar-width: none; /* Firefox */
+  overflow-y: scroll; /* Ativa a rolagem vertical */
+  /* Estilos específicos para WebKit/Blink */
+}
+.l-header__nav__books::-webkit-scrollbar, .l-header__nav__chapters::-webkit-scrollbar {
+  display: none; /* Chrome, Safari, Opera */
+}
+.l-header__nav__books > *:first-child, .l-header__nav__chapters > *:first-child {
+  margin-left: 16px;
+}
+.l-header__nav__books > *:last-child, .l-header__nav__chapters > *:last-child {
+  margin-right: 16px;
+}
+.l-header__nav__chapters {
+  gap: 8px;
+}
+
+.l-loader {
+  position: fixed;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  z-index: 999;
+  background-color: var(--clr-blue-100);
+}
+.l-loader span {
+  position: absolute;
+  opacity: 0;
+}
+
+body {
+  --font-family: "M PLUS Rounded 1c", Arial, sans-serif;
+  min-height: 100vh;
+  font-family: var(--font-family);
+  background-color: var(--clr-blue-100);
+  color: var(--clr-dark);
+}
+
+/*# sourceMappingURL=style.css.map */

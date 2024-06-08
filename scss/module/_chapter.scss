@@ -1,0 +1,32 @@
+$name: ".c-chapter";
+
+#{$name} {
+  border: none;
+  width: 32px;
+  aspect-ratio: 1 / 1;
+  border-radius: 4px;
+  background: var(--clr-white);
+  cursor: pointer;
+  transition: all 250ms ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  &#{$name}--active,
+  &:hover {
+    background: var(--clr-blue-900);
+    background-image: linear-gradient(
+      90deg,
+      var(--clr-blue-900) 0%,
+      var(--clr-blue-800) 100%
+    );
+    color: var(--clr-white);
+
+    #{$name} {
+      &__chapters {
+        background-color: var(--clr-yellow);
+        color: initial;
+      }
+    }
+  }
+}

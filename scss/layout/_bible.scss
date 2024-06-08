@@ -1,0 +1,11 @@
+$name: ".l-bible";
+
+#{$name} {
+  &__text {
+    &__number {
+      vertical-align: super;
+      font-weight: 900;
+      font-size: 10px;
+    }
+  }
+}

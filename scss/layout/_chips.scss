@@ -1,0 +1,13 @@
+$name: ".l-chips";
+
+#{$name} {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  position: relative;
+
+  fieldset {
+    position: absolute;
+    opacity: 0;
+  }
+}

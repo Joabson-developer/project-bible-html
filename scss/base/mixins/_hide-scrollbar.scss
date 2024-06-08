@@ -1,0 +1,12 @@
+// TODO: se precisar do eixo-x, será necessário adicionar um parametro
+@mixin hide-scrollbar {
+  /* Estilos gerais para todos os navegadores */
+  -ms-overflow-style: none; /* Internet Explorer e Edge */
+  scrollbar-width: none; /* Firefox */
+  overflow-y: scroll; /* Ativa a rolagem vertical */
+
+  /* Estilos específicos para WebKit/Blink */
+  &::-webkit-scrollbar {
+    display: none; /* Chrome, Safari, Opera */
+  }
+}

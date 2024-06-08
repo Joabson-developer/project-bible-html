@@ -1,0 +1,39 @@
+$name: ".c-search";
+
+#{$name} {
+  display: flex;
+  align-items: center;
+  background-color: var(--clr-white);
+  padding: 8px 16px;
+  border-radius: 16px;
+  gap: 4px;
+  overflow: hidden;
+
+  &:has(input:focus-visible) {
+    outline: -webkit-focus-ring-color auto 1px;
+
+    #{$name}__input {
+      translate: -20px;
+    }
+
+    [for="search"] {
+      translate: -30px;
+    }
+  }
+
+  &__input,
+  [for="search"] {
+    transition: all 250ms ease;
+  }
+
+  &__input {
+    border: none;
+    outline: none;
+    font-family: var(--font-family);
+    font-weight: 600;
+
+    &::placeholder {
+      font-family: inherit;
+    }
+  }
+}

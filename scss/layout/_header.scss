@@ -1,0 +1,56 @@
+$name: ".l-header";
+
+#{$name} {
+  padding-block: 16px;
+
+  &__user {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px;
+    margin-bottom: 24px;
+
+    #{$name}__logo {
+      max-height: 40px;
+    }
+  }
+
+  &__nav:not(:first-child) {
+    margin-top: 16px;
+  }
+
+  &__nav {
+    &__header {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    &__title {
+      font-weight: 900;
+      font-size: 20px;
+    }
+
+    &__books,
+    &__chapters {
+      display: flex;
+      gap: 16px;
+      padding-block: 4px;
+      margin-top: 8px;
+
+      @include hide-scrollbar;
+
+      & > *:first-child {
+        margin-left: 16px;
+      }
+
+      & > *:last-child {
+        margin-right: 16px;
+      }
+    }
+
+    &__chapters {
+      gap: 8px;
+    }
+  }
+}
