@@ -9,6 +9,7 @@ $name: ".l-header";
     justify-content: space-between;
     gap: 8px;
     transition: 1s;
+    max-width: 100%;
 
     &:not(&--fixed) {
       margin-bottom: 24px;
@@ -16,6 +17,12 @@ $name: ".l-header";
 
     #{$name}__logo {
       max-height: 40px;
+    }
+
+    @media (width > 440px) {
+      .c-search {
+        margin-left: auto;
+      }
     }
 
     &--fixed {

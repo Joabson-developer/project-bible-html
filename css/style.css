@@ -110,6 +110,16 @@ img {
   color: initial;
 }
 
+.c-bottom-navigation {
+  position: fixed;
+  inset: auto 0 0 0;
+  background-color: var(--clr-blue-100);
+  height: 60px;
+  -webkit-box-shadow: 1px 0px 5px 0px rgba(0, 0, 0, 0.5);
+  -moz-box-shadow: 1px 0px 5px 0px rgba(0, 0, 0, 0.5);
+  box-shadow: 1px 0px 5px 0px rgba(0, 0, 0, 0.5);
+}
+
 .c-chapter {
   border: none;
   width: 32px;
@@ -213,6 +223,11 @@ img {
   display: none;
 }
 
+.l-bible__text {
+  line-height: 18px;
+  margin-bottom: 4px;
+  text-align: justify;
+}
 .l-bible__text__number {
   vertical-align: super;
   font-weight: 900;
@@ -220,7 +235,7 @@ img {
 }
 
 body {
-  padding-bottom: 24px;
+  padding-bottom: 58px;
 }
 body:has(.l-header__user--fixed) {
   --heigth-element: 72px;
@@ -251,6 +266,22 @@ body:has(.l-header__user--fixed) {
   }
 }
 
+.l-footer {
+  margin-top: 40px;
+  text-align: center;
+  font-size: 12px;
+  height: 80px;
+  padding: 16px;
+}
+.l-footer::before {
+  content: "";
+  height: 2px;
+  width: 30px;
+  display: block;
+  margin: 8px auto 16px;
+  background-color: var(--clr-dark);
+}
+
 .l-header {
   padding-block: 16px;
 }
@@ -260,12 +291,18 @@ body:has(.l-header__user--fixed) {
   justify-content: space-between;
   gap: 8px;
   transition: 1s;
+  max-width: 100%;
 }
 .l-header__user:not(.l-header__user--fixed) {
   margin-bottom: 24px;
 }
 .l-header__user .l-header__logo {
   max-height: 40px;
+}
+@media (width > 440px) {
+  .l-header__user .c-search {
+    margin-left: auto;
+  }
 }
 .l-header__user--fixed {
   position: fixed;
@@ -331,6 +368,32 @@ body:has(.l-header__user--fixed) {
 .l-loader span {
   position: absolute;
   opacity: 0;
+}
+
+.l-nav-footer {
+  margin-top: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.l-nav-footer__button {
+  border: none;
+  background: none;
+  font-size: 32px;
+  cursor: pointer;
+  transition: 250ms;
+}
+.l-nav-footer__button:not(:disabled) {
+  color: var(--clr-blue-900);
+}
+.l-nav-footer__button:not(:disabled):hover {
+  color: var(--clr-blue-800);
+}
+.l-nav-footer__button:disabled {
+  cursor: not-allowed;
+}
+.l-nav-footer__book {
+  font-size: 24px;
 }
 
 body {

@@ -1,4 +1,3 @@
-let firstLoad = true
 export function loading(condition) {
   const loader = document.getElementById("loader")
   const element = document.querySelector('[data="loading-wrapper"]')
@@ -16,13 +15,10 @@ export function loading(condition) {
       <span>Carregando, por favor aguarde...</span>
     </div>
     `
-
     if (!loader) document.body.insertAdjacentHTML("beforeend", loaderElement)
   } else {
     if (loader) loader.remove()
 
     if (element) element.classList.remove("s-is-loading")
   }
-
-  firstLoad = false
 }
