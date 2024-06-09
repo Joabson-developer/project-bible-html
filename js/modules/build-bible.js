@@ -142,6 +142,9 @@ export function buildBible(data) {
     const FooterBook = document.getElementById("FooterBook")
     FooterBook.innerText = `${getBook.book_name} ${queryParams.get("chapter")}`
 
+    document.querySelector(".l-footer__year").innerHTML =
+      new Date().getFullYear()
+
     loading(false)
 
     const bookButtons = document.querySelectorAll(".c-book")
