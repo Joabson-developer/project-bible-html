@@ -1,27 +1,54 @@
 export function observeElements(
-  { selector, all = false },
+  { selector, selectorAll },
   callback,
   timeout = 5000
 ) {
-  const observer = new MutationObserver((_, observer) => {
-    const elements = all
-      ? document.querySelectorAll(selector)
-      : document.querySelector(selector)
+  // Função auxiliar para verificar a presença de elementos
+  function checkForElements() {
+    let elements
 
-    console.log(elements)
-    if (elements) {
+    if (selectorAll) {
+      elements = document.querySelectorAll(selectorAll)
+    } else {
+      elements = document.querySelector(selector)
+    }
+
+    return selectorAll ? elements.length > 0 : elements
+  }
+
+  // Verificação inicial antes de configurar o observer
+  if (checkForElements()) {
+    callback(
+      selectorAll
+        ? document.querySelectorAll(selectorAll)
+        : document.querySelector(selector)
+    )
+    return
+  }
+
+  // Criar o observer
+  const observer = new MutationObserver((_, observer) => {
+    if (checkForElements()) {
       observer.disconnect()
       clearTimeout(timeoutId)
-      callback(elements)
+      callback(
+        selectorAll
+          ? document.querySelectorAll(selectorAll)
+          : document.querySelector(selector)
+      )
     }
   })
 
+  // Configurações do observer para observar a árvore de DOM inteira
   observer.observe(document.body, { childList: true, subtree: true })
 
+  // Configurar o timeout
   const timeoutId = setTimeout(() => {
     observer.disconnect()
     console.warn(
-      `Elemento ${selector} não foi encontrado dentro do tempo especificado.`
+      `Elemento ${
+        selector || selectorAll
+      } não foi encontrado dentro do tempo especificado.`
     )
   }, timeout)
 }
