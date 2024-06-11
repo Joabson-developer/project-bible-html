@@ -28,7 +28,7 @@ function getSelectedText() {
 }
 
 const actions = {
-  add() {
+  favorite() {
     // TODO: trabalhar o remover dos favoritos
     const allFavorites =
       JSON.parse(localStorage.getItem(`${LOCAL_PREFIX}:favorites`)) || null

@@ -325,7 +325,7 @@ img {
 .c-tooltip button:hover, .c-tooltip button:focus {
   scale: 1.1;
 }
-.c-tooltip__add {
+.c-tooltip__favorite {
   color: var(--clr-yellow);
   font-size: 19px;
 }
