@@ -301,11 +301,9 @@ img {
 
 .c-tooltip {
   position: fixed;
-  top: 400px;
-  left: 400px;
   background-color: var(--clr-blue-100);
   padding: 4px 8px;
-  width: 80px;
+  min-width: 80px;
   border-radius: 4px;
   display: flex;
   align-items: center;
@@ -315,10 +313,14 @@ img {
   -moz-box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 0.5);
   box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 0.5);
 }
+.c-tooltip[aria-hidden=true] {
+  display: none;
+}
 .c-tooltip button {
   border: none;
   background-color: transparent;
   transition: 250ms;
+  cursor: pointer;
 }
 .c-tooltip button:hover, .c-tooltip button:focus {
   scale: 1.1;
@@ -326,6 +328,12 @@ img {
 .c-tooltip__add {
   color: var(--clr-yellow);
   font-size: 19px;
+}
+.c-tooltip__share {
+  font-size: 17px;
+}
+.c-tooltip__copy {
+  font-size: 17px;
 }
 .c-tooltip__cancel {
   color: var(--clr-danger);

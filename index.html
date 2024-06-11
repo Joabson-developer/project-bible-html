@@ -146,11 +146,29 @@
 
     <!-- TODO: criar a splashscreen -->
 
-    <div class="c-tooltip">
-      <button class="c-tooltip__add" aria-label="adicionar aos favoritos">
+    <div class="c-tooltip" aria-hidden="true">
+      <button
+        data-action="add"
+        class="c-tooltip__add"
+        aria-label="adicionar aos favoritos"
+      >
         <i class="fa-solid fa-star"></i>
       </button>
-      <button class="c-tooltip__cancel" aria-label="cancelar">
+      <button
+        data-action="share"
+        class="c-tooltip__share"
+        aria-label="compartilhar"
+      >
+        <i class="fa-solid fa-share-nodes"></i>
+      </button>
+      <button data-action="copy" class="c-tooltip__copy" aria-label="copiar">
+        <i class="fa-regular fa-copy"></i>
+      </button>
+      <button
+        data-action="cancel"
+        class="c-tooltip__cancel"
+        aria-label="cancelar"
+      >
         <i class="fa-solid fa-xmark"></i>
       </button>
     </div>

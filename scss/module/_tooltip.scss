@@ -2,11 +2,9 @@ $name: ".c-tooltip";
 
 #{$name} {
   position: fixed;
-  top: 400px;
-  left: 400px;
   background-color: var(--clr-blue-100);
   padding: 4px 8px;
-  width: 80px;
+  min-width: 80px;
   border-radius: 4px;
   display: flex;
   align-items: center;
@@ -14,10 +12,15 @@ $name: ".c-tooltip";
   gap: 8px;
   @include box-shadow(0px 2px 5px 0px rgba(0, 0, 0, 0.5));
 
+  &[aria-hidden="true"] {
+    display: none;
+  }
+
   button {
     border: none;
     background-color: transparent;
     transition: 250ms;
+    cursor: pointer;
 
     &:hover,
     &:focus {
@@ -28,6 +31,12 @@ $name: ".c-tooltip";
   &__add {
     color: var(--clr-yellow);
     font-size: 19px;
+  }
+  &__share {
+    font-size: 17px;
+  }
+  &__copy {
+    font-size: 17px;
   }
   &__cancel {
     color: var(--clr-danger);
