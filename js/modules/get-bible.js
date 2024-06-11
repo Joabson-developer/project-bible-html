@@ -4,7 +4,8 @@ import { observeElements } from "./utils/observe-elements.js"
 import { queryParams } from "./utils/query-params.js"
 import { scrollToElement } from "./utils/scroll-to-element.js"
 
-const BASE_URL = "http://localhost:5001/api"
+const BASE_URL =
+  "https://bible-api-git-master-joabsondevelopers-projects.vercel.app/api"
 
 function dispatch({ currentTarget }) {
   history.pushState(null, "", currentTarget.dataset.href)

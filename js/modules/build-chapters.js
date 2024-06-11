@@ -12,7 +12,7 @@ export function buildChapters(getBook) {
           "version"
         )}&book=${queryParams.get(
         "book"
-      )}&chapter=${chapter}" aria-describedby="chapter" class="c-chapter${
+      )}&chapter=${chapter}" aria-label="capítulo ${chapter}" class="c-chapter${
         Number(queryParams.get("chapter")) === index + 1
           ? " c-chapter--active"
           : ""

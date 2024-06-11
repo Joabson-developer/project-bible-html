@@ -22,7 +22,7 @@ img {
 }
 
 :root {
-  --clr-green--100: #39b826;
+  --clr-green-100: #39b826;
   --clr-blue-100: #edf4fc;
   --clr-blue-500: #88bcf7;
   --clr-blue-600: #70b1f1;
@@ -53,7 +53,7 @@ img {
   width: 8px;
   aspect-ratio: 1/1;
   border-radius: 50%;
-  background-color: var(--clr-green--100);
+  background-color: var(--clr-green-100);
   position: absolute;
   top: -3px;
   right: -3px;
@@ -119,7 +119,95 @@ img {
   -moz-box-shadow: 1px 0px 5px 0px rgba(0, 0, 0, 0.5);
   box-shadow: 1px 0px 5px 0px rgba(0, 0, 0, 0.5);
 }
+.c-bottom-navigation__list {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  height: inherit;
+}
+.c-bottom-navigation__list__item__button {
+  display: flex;
+  background-color: transparent;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  border: none;
+  height: inherit;
+  color: inherit;
+  min-width: 90px;
+  position: relative;
+  cursor: pointer;
+  overflow: hidden;
+}
+.c-bottom-navigation__list__item__button i {
+  font-size: 24px;
+  translate: 0 10px;
+  transition: 200ms 0ms;
+}
+.c-bottom-navigation__list__item__button div {
+  translate: 0 28px;
+  transition: 300ms;
+  padding: 2px 4px;
+  position: relative;
+}
+.c-bottom-navigation__list__item__button div::before {
+  content: "";
+  width: 100%;
+  height: 100%;
+  display: block;
+  left: 50%;
+  top: 50%;
+  translate: -150px -50%;
+  background-color: var(--clr-blue-900);
+  z-index: -1;
+  position: absolute;
+  border-radius: 2px;
+  transition: 500ms 500ms;
+}
+.c-bottom-navigation__list__item__button div span {
+  transition: 250ms 750ms;
+}
+.c-bottom-navigation__list__item__button.c-bottom-navigation__list__item__button--active i, .c-bottom-navigation__list__item__button:hover i, .c-bottom-navigation__list__item__button:focus i {
+  translate: 0 0;
+  transition: 200ms 150ms;
+  color: var(--clr-blue-900);
+}
+.c-bottom-navigation__list__item__button.c-bottom-navigation__list__item__button--active i.fa-solid.fa-star, .c-bottom-navigation__list__item__button:hover i.fa-solid.fa-star, .c-bottom-navigation__list__item__button:focus i.fa-solid.fa-star {
+  animation: pulse 500ms linear 5;
+}
+.c-bottom-navigation__list__item__button.c-bottom-navigation__list__item__button--active i.fa-solid.fa-gear, .c-bottom-navigation__list__item__button:hover i.fa-solid.fa-gear, .c-bottom-navigation__list__item__button:focus i.fa-solid.fa-gear {
+  rotate: 360deg;
+}
+.c-bottom-navigation__list__item__button.c-bottom-navigation__list__item__button--active i.fa-solid.fa-circle-arrow-left, .c-bottom-navigation__list__item__button:hover i.fa-solid.fa-circle-arrow-left, .c-bottom-navigation__list__item__button:focus i.fa-solid.fa-circle-arrow-left {
+  animation: slide 800ms ease-in-out 3;
+}
+.c-bottom-navigation__list__item__button.c-bottom-navigation__list__item__button--active div, .c-bottom-navigation__list__item__button:hover div, .c-bottom-navigation__list__item__button:focus div {
+  translate: 0 0;
+}
+.c-bottom-navigation__list__item__button.c-bottom-navigation__list__item__button--active div::before, .c-bottom-navigation__list__item__button:hover div::before, .c-bottom-navigation__list__item__button:focus div::before {
+  translate: -50% -50%;
+}
+.c-bottom-navigation__list__item__button.c-bottom-navigation__list__item__button--active div span, .c-bottom-navigation__list__item__button:hover div span, .c-bottom-navigation__list__item__button:focus div span {
+  color: var(--clr-white);
+}
 
+@keyframes pulse {
+  0%, 100% {
+    font-weight: 900;
+  }
+  50% {
+    font-weight: 400;
+  }
+}
+@keyframes slide {
+  0%, 100% {
+    transform: translateX(8px);
+  }
+  50% {
+    transform: translateX(-8px);
+  }
+}
 .c-chapter {
   border: none;
   width: 32px;

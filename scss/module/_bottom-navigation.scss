@@ -6,4 +6,116 @@ $name: ".c-bottom-navigation";
   background-color: var(--clr-blue-100);
   height: 60px;
   @include box-shadow(1px 0px 5px 0px rgba(0, 0, 0, 0.5));
+
+  &__list {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    height: inherit;
+
+    &__item {
+      &__button {
+        $self: &;
+        display: flex;
+        background-color: transparent;
+        flex-direction: column;
+        align-items: center;
+        gap: 4px;
+        border: none;
+        height: inherit;
+        color: inherit;
+        min-width: 90px;
+        position: relative;
+        cursor: pointer;
+        overflow: hidden;
+
+        i {
+          font-size: 24px;
+          translate: 0 10px;
+          transition: 200ms 0ms;
+        }
+
+        div {
+          translate: 0 28px;
+          transition: 300ms;
+          padding: 2px 4px;
+          position: relative;
+
+          &::before {
+            content: "";
+            width: 100%;
+            height: 100%;
+            display: block;
+            left: 50%;
+            top: 50%;
+            translate: -150px -50%;
+            background-color: var(--clr-blue-900);
+            z-index: -1;
+            position: absolute;
+            border-radius: 2px;
+            transition: 500ms 500ms;
+          }
+
+          span {
+            transition: 250ms 750ms;
+          }
+        }
+
+        &#{$self}--active,
+        &:hover,
+        &:focus {
+          i {
+            translate: 0 0;
+            transition: 200ms 150ms;
+
+            color: var(--clr-blue-900);
+
+            &.fa-solid.fa-star {
+              animation: pulse 500ms linear 5;
+            }
+            &.fa-solid.fa-gear {
+              rotate: 360deg;
+            }
+
+            &.fa-solid.fa-circle-arrow-left {
+              animation: slide 800ms ease-in-out 3;
+            }
+          }
+
+          div {
+            translate: 0 0;
+
+            &::before {
+              translate: -50% -50%;
+            }
+
+            span {
+              color: var(--clr-white);
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@keyframes pulse {
+  0%,
+  100% {
+    font-weight: 900;
+  }
+  50% {
+    font-weight: 400;
+  }
+}
+
+@keyframes slide {
+  0%,
+  100% {
+    transform: translateX(8px);
+  }
+  50% {
+    transform: translateX(-8px);
+  }
 }
