@@ -101,11 +101,20 @@ observeElements({ selectorAll: ".l-bible__text" }, (verses) => {
 })
 
 document.addEventListener("click", ({ target, clientX, clientY }) => {
-  if (target.classList.contains("l-bible__text--pending")) {
+  const safeArea = tooltip.getElementsByTagName("*")
+  const clickedOnTheSafeArea = Array.from(safeArea).includes(target)
+
+  if (
+    target.classList.contains("l-bible__text--pending") ||
+    target.classList.contains("l-bible__text--selected") ||
+    clickedOnTheSafeArea
+  ) {
     tooltip.style.left = `${clientX - 30}px`
     tooltip.style.top = `${clientY - 50}px`
     tooltip.setAttribute("aria-hidden", "false")
     lastSelectedElement = target
+  } else {
+    tooltip.setAttribute("aria-hidden", "true")
   }
 })
 
