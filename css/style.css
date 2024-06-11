@@ -326,8 +326,13 @@ img {
   scale: 1.1;
 }
 .c-tooltip__favorite {
-  color: var(--clr-yellow);
   font-size: 19px;
+}
+.c-tooltip__favorite--active {
+  color: var(--clr-yellow);
+}
+.c-tooltip__favorite--active i::before {
+  font-weight: 900;
 }
 .c-tooltip__share {
   font-size: 17px;

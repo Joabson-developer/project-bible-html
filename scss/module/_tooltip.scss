@@ -29,8 +29,17 @@ $name: ".c-tooltip";
   }
 
   &__favorite {
-    color: var(--clr-yellow);
     font-size: 19px;
+
+    &--active {
+      color: var(--clr-yellow);
+
+      i {
+        &::before {
+          font-weight: 900;
+        }
+      }
+    }
   }
   &__share {
     font-size: 17px;

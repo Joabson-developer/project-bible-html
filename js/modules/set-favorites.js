@@ -28,7 +28,7 @@ function getSelectedText() {
 }
 
 const actions = {
-  favorite() {
+  favorite(currentTarget) {
     // TODO: trabalhar o remover dos favoritos
     const allFavorites = JSON.parse(
       localStorage.getItem(`${LOCAL_PREFIX}:favorites`)
@@ -39,6 +39,7 @@ const actions = {
     const selectedElements = document.querySelectorAll(
       ".l-bible__text--pending, .l-bible__text--selected"
     )
+    // TODO: criar um filtro para tratar o add ou remove favorito
     const selectedToAddFavorites = Array.from(selectedElements).map(
       (verse) => verse.querySelector(".l-bible__text__number").innerText
     )
@@ -57,6 +58,7 @@ const actions = {
       verse.classList.remove("l-bible__text--pending")
       verse.classList.add("l-bible__text--selected")
     })
+    console.log(currentTarget.classList.toggle("c-tooltip__favorite--active"))
   },
   share() {
     alert("em breve")
@@ -109,10 +111,12 @@ document.addEventListener("click", ({ target, clientX, clientY }) => {
     target.classList.contains("l-bible__text--selected") ||
     clickedOnTheSafeArea
   ) {
-    tooltip.style.left = `${clientX - 30}px`
-    tooltip.style.top = `${clientY - 50}px`
-    tooltip.setAttribute("aria-hidden", "false")
-    lastSelectedElement = target
+    if (!clickedOnTheSafeArea) {
+      tooltip.style.left = `${clientX - 30}px`
+      tooltip.style.top = `${clientY - 50}px`
+      tooltip.setAttribute("aria-hidden", "false")
+      lastSelectedElement = target
+    }
   } else {
     tooltip.setAttribute("aria-hidden", "true")
   }
@@ -120,7 +124,11 @@ document.addEventListener("click", ({ target, clientX, clientY }) => {
 
 const tooltipActions = tooltip.querySelectorAll("button")
 tooltipActions.forEach((button) => {
-  button.addEventListener("click", ({ currentTarget }) =>
+  button.addEventListener("click", ({ currentTarget }) => {
+    if (currentTarget.dataset.action === "favorite") {
+      actions[currentTarget.dataset.action](currentTarget)
+      return
+    }
     actions[currentTarget.dataset.action]()
-  )
+  })
 })
