@@ -1,4 +1,6 @@
+import { LOCAL_PREFIX } from "./consts/local-prefix.js"
 import { observeElements } from "./utils/observe-elements.js"
+import { queryParams } from "./utils/query-params.js"
 const tooltip = document.querySelector(".c-tooltip")
 
 let holdTimeout
@@ -27,7 +29,33 @@ function getSelectedText() {
 
 const actions = {
   add() {
-    alert("em breve")
+    // TODO: trabalhar o remover dos favoritos
+    const allFavorites =
+      JSON.parse(localStorage.getItem(`${LOCAL_PREFIX}:favorites`)) || null
+    const book = queryParams.get("book")
+    const chapter = queryParams.get("chapter")
+
+    const selectedElements = document.querySelectorAll(
+      ".l-bible__text--pending, .l-bible__text--selected"
+    )
+    const selectedToAddFavorites = Array.from(selectedElements).map(
+      (verse) => verse.querySelector(".l-bible__text__number").innerText
+    )
+    const copyFromAllFavorites = {
+      ...allFavorites,
+      [book]: {
+        [chapter]: selectedToAddFavorites
+      }
+    }
+
+    localStorage.setItem(
+      `${LOCAL_PREFIX}:favorites`,
+      JSON.stringify(copyFromAllFavorites)
+    )
+    selectedElements.forEach((verse) => {
+      verse.classList.remove("l-bible__text--pending")
+      verse.classList.add("l-bible__text--selected")
+    })
   },
   share() {
     alert("em breve")
