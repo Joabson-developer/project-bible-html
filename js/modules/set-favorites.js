@@ -4,7 +4,7 @@ import { queryParams } from "./utils/query-params.js"
 const tooltip = document.querySelector(".c-tooltip")
 
 let holdTimeout
-const TIMEOUT = 1000
+const TIMEOUT = 500
 let lastSelectedElement
 
 function holdStart({ currentTarget }) {
@@ -30,8 +30,9 @@ function getSelectedText() {
 const actions = {
   favorite() {
     // TODO: trabalhar o remover dos favoritos
-    const allFavorites =
-      JSON.parse(localStorage.getItem(`${LOCAL_PREFIX}:favorites`)) || null
+    const allFavorites = JSON.parse(
+      localStorage.getItem(`${LOCAL_PREFIX}:favorites`)
+    )
     const book = queryParams.get("book")
     const chapter = queryParams.get("chapter")
 
