@@ -1,3 +1,4 @@
+import "./modules/bottom-navigation.js"
 import { LOCAL_PREFIX } from "./modules/consts/local-prefix.js"
 import { getBible } from "./modules/get-bible.js"
 import { hideScrollbar } from "./modules/hide-scrollbar.js"

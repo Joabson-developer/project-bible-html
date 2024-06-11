@@ -76,9 +76,7 @@
         </nav>
 
         <nav class="l-header__nav">
-          <h2 id="chapter" class="l-header__nav__title l-container">
-            Capitulos
-          </h2>
+          <h2 class="l-header__nav__title l-container">Capitulos</h2>
 
           <ul class="l-header__nav__chapters l-container--lg"></ul>
         </nav>
@@ -104,7 +102,43 @@
           reservados.
         </p>
 
-        <div class="c-bottom-navigation"></div>
+        <nav class="c-bottom-navigation">
+          <ul class="c-bottom-navigation__list">
+            <li class="c-bottom-navigation__list__item">
+              <button
+                data-callback="favorites"
+                class="c-bottom-navigation__list__item__button"
+              >
+                <i class="fa-solid fa-star"></i>
+                <div>
+                  <span>FAVORITOS</span>
+                </div>
+              </button>
+            </li>
+            <li class="c-bottom-navigation__list__item">
+              <button
+                data-callback="settings"
+                class="c-bottom-navigation__list__item__button"
+              >
+                <i class="fa-solid fa-gear"></i>
+                <div>
+                  <span>CONFIGURAÇÕES</span>
+                </div>
+              </button>
+            </li>
+            <li class="c-bottom-navigation__list__item">
+              <button
+                data-callback="back"
+                class="c-bottom-navigation__list__item__button"
+              >
+                <i class="fa-solid fa-circle-arrow-left"></i>
+                <div>
+                  <span>VOLTAR</span>
+                </div>
+              </button>
+            </li>
+          </ul>
+        </nav>
       </footer>
     </div>
 
