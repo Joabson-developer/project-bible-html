@@ -63,8 +63,7 @@ $name: ".c-bottom-navigation";
         }
 
         &#{$self}--active,
-        &:hover,
-        &:focus {
+        &:hover {
           i {
             translate: 0 0;
             transition: 200ms 150ms;

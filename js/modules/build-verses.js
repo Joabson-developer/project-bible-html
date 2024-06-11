@@ -1,6 +1,6 @@
 export function buildVerses(getBook) {
   const bibleTextElement = `
-<h1 class="l-main__title">${getBook.book_name}</h1>
+<h1 class="l-bible__title">${getBook.book_name}</h1>
 
   ${getBook.verses
     .map(
@@ -13,5 +13,5 @@ export function buildVerses(getBook) {
     .join("")}
 `
 
-  document.querySelector(".l-main").innerHTML = bibleTextElement
+  document.querySelector(".l-bible").innerHTML = bibleTextElement
 }

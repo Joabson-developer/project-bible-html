@@ -30,7 +30,7 @@ export async function getBible() {
     const selectors =
       ".c-book, .c-chapter, #footerButtonLeft, #footerButtonRight"
 
-    observeElements({ selectorAll: selectors, all: true }, (bookButtons) => {
+    observeElements({ selectorAll: selectors }, (bookButtons) => {
       bookButtons.forEach((button) =>
         button.addEventListener("click", dispatch)
       )

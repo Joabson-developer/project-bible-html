@@ -168,27 +168,27 @@ img {
 .c-bottom-navigation__list__item__button div span {
   transition: 250ms 750ms;
 }
-.c-bottom-navigation__list__item__button.c-bottom-navigation__list__item__button--active i, .c-bottom-navigation__list__item__button:hover i, .c-bottom-navigation__list__item__button:focus i {
+.c-bottom-navigation__list__item__button.c-bottom-navigation__list__item__button--active i, .c-bottom-navigation__list__item__button:hover i {
   translate: 0 0;
   transition: 200ms 150ms;
   color: var(--clr-blue-900);
 }
-.c-bottom-navigation__list__item__button.c-bottom-navigation__list__item__button--active i.fa-solid.fa-star, .c-bottom-navigation__list__item__button:hover i.fa-solid.fa-star, .c-bottom-navigation__list__item__button:focus i.fa-solid.fa-star {
+.c-bottom-navigation__list__item__button.c-bottom-navigation__list__item__button--active i.fa-solid.fa-star, .c-bottom-navigation__list__item__button:hover i.fa-solid.fa-star {
   animation: pulse 500ms linear 5;
 }
-.c-bottom-navigation__list__item__button.c-bottom-navigation__list__item__button--active i.fa-solid.fa-gear, .c-bottom-navigation__list__item__button:hover i.fa-solid.fa-gear, .c-bottom-navigation__list__item__button:focus i.fa-solid.fa-gear {
+.c-bottom-navigation__list__item__button.c-bottom-navigation__list__item__button--active i.fa-solid.fa-gear, .c-bottom-navigation__list__item__button:hover i.fa-solid.fa-gear {
   rotate: 360deg;
 }
-.c-bottom-navigation__list__item__button.c-bottom-navigation__list__item__button--active i.fa-solid.fa-circle-arrow-left, .c-bottom-navigation__list__item__button:hover i.fa-solid.fa-circle-arrow-left, .c-bottom-navigation__list__item__button:focus i.fa-solid.fa-circle-arrow-left {
+.c-bottom-navigation__list__item__button.c-bottom-navigation__list__item__button--active i.fa-solid.fa-circle-arrow-left, .c-bottom-navigation__list__item__button:hover i.fa-solid.fa-circle-arrow-left {
   animation: slide 800ms ease-in-out 3;
 }
-.c-bottom-navigation__list__item__button.c-bottom-navigation__list__item__button--active div, .c-bottom-navigation__list__item__button:hover div, .c-bottom-navigation__list__item__button:focus div {
+.c-bottom-navigation__list__item__button.c-bottom-navigation__list__item__button--active div, .c-bottom-navigation__list__item__button:hover div {
   translate: 0 0;
 }
-.c-bottom-navigation__list__item__button.c-bottom-navigation__list__item__button--active div::before, .c-bottom-navigation__list__item__button:hover div::before, .c-bottom-navigation__list__item__button:focus div::before {
+.c-bottom-navigation__list__item__button.c-bottom-navigation__list__item__button--active div::before, .c-bottom-navigation__list__item__button:hover div::before {
   translate: -50% -50%;
 }
-.c-bottom-navigation__list__item__button.c-bottom-navigation__list__item__button--active div span, .c-bottom-navigation__list__item__button:hover div span, .c-bottom-navigation__list__item__button:focus div span {
+.c-bottom-navigation__list__item__button.c-bottom-navigation__list__item__button--active div span, .c-bottom-navigation__list__item__button:hover div span {
   color: var(--clr-white);
 }
 
@@ -313,8 +313,16 @@ img {
 
 .l-bible__text {
   line-height: 18px;
-  margin-bottom: 4px;
+  padding-bottom: 4px;
   text-align: justify;
+  cursor: default;
+}
+.l-bible__text--pending {
+  background-color: var(--clr-blue-900);
+  color: var(--clr-white);
+}
+.l-bible__text--selected {
+  background-color: var(--clr-yellow);
 }
 .l-bible__text__number {
   vertical-align: super;
