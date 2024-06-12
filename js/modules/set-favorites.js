@@ -4,7 +4,7 @@ import { queryParams } from "./utils/query-params.js"
 const tooltip = document.querySelector(".c-tooltip")
 
 let holdTimeout
-const TIMEOUT = 500
+const TIMEOUT = 300
 let lastSelectedElement
 
 function holdStart({ currentTarget }) {
@@ -36,6 +36,14 @@ const actions = {
     const book = queryParams.get("book")
     const chapter = queryParams.get("chapter")
 
+    const isRemoving = currentTarget.classList.contains(
+      "c-tooltip__favorite--active"
+    )
+    if (isRemoving) {
+      lastSelectedElement.classList.remove("l-bible__text--selected")
+      tooltip.setAttribute("aria-hidden", "true")
+    }
+
     const selectedElements = document.querySelectorAll(
       ".l-bible__text--pending, .l-bible__text--selected"
     )
@@ -58,7 +66,7 @@ const actions = {
       verse.classList.remove("l-bible__text--pending")
       verse.classList.add("l-bible__text--selected")
     })
-    console.log(currentTarget.classList.toggle("c-tooltip__favorite--active"))
+    currentTarget.classList.toggle("c-tooltip__favorite--active")
   },
   share() {
     alert("em breve")
@@ -116,6 +124,11 @@ document.addEventListener("click", ({ target, clientX, clientY }) => {
       tooltip.style.top = `${clientY - 50}px`
       tooltip.setAttribute("aria-hidden", "false")
       lastSelectedElement = target
+
+      const favoriteButton = tooltip.querySelector(".c-tooltip__favorite")
+      if (target.classList.contains("l-bible__text--selected"))
+        favoriteButton.classList.add("c-tooltip__favorite--active")
+      else favoriteButton.classList.remove("c-tooltip__favorite--active")
     }
   } else {
     tooltip.setAttribute("aria-hidden", "true")
