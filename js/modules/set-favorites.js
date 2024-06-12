@@ -29,7 +29,6 @@ function getSelectedText() {
 
 const actions = {
   favorite(currentTarget) {
-    // TODO: trabalhar o remover dos favoritos
     const allFavorites = JSON.parse(
       localStorage.getItem(`${LOCAL_PREFIX}:favorites`)
     )
@@ -47,7 +46,6 @@ const actions = {
     const selectedElements = document.querySelectorAll(
       ".l-bible__text--pending, .l-bible__text--selected"
     )
-    // TODO: criar um filtro para tratar o add ou remove favorito
     const selectedToAddFavorites = Array.from(selectedElements).map(
       (verse) => verse.querySelector(".l-bible__text__number").innerText
     )
