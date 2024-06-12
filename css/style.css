@@ -440,15 +440,18 @@ body:has(.l-header__user--fixed) {
   padding-block: 16px;
 }
 .l-header__user {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 8px;
   transition: 1s;
   max-width: 100%;
 }
 .l-header__user:not(.l-header__user--fixed) {
   margin-bottom: 24px;
+}
+.l-header__user__content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  gap: 8px;
 }
 .l-header__user .l-header__logo {
   max-height: 40px;

@@ -39,7 +39,7 @@ export async function getBible() {
     scrollToElement(".c-book--active")
     scrollToElement(".c-chapter--active")
   } catch (error) {
-    console.error(`tratar erro: ${JSON.stringify(error)}`)
+    console.error(error)
   } finally {
     loading(false)
   }

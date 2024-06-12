@@ -6,8 +6,9 @@ export function buildVerses(getBook) {
     localStorage.getItem(`${LOCAL_PREFIX}:favorites`)
   )
 
-  const favoriteVerses =
-    allFavorites[getBook.abbrev][queryParams.get("chapter")] || []
+  let favoriteVerses = []
+  if (allFavorites && allFavorites[getBook.abbrev])
+    allFavorites[getBook.abbrev][queryParams.get("chapter")]
 
   const bibleTextElement = `
 <h1 class="l-bible__title">${getBook.book_name}</h1>

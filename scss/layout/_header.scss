@@ -4,15 +4,19 @@ $name: ".l-header";
   padding-block: 16px;
 
   &__user {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 8px;
     transition: 1s;
     max-width: 100%;
 
     &:not(&--fixed) {
       margin-bottom: 24px;
+    }
+
+    &__content {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      width: 100%;
+      gap: 8px;
     }
 
     #{$name}__logo {
