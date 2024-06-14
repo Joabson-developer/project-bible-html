@@ -42,21 +42,6 @@ $name: ".c-bottom-navigation";
           padding: 2px 4px;
           position: relative;
 
-          &::before {
-            content: "";
-            width: 100%;
-            height: 100%;
-            display: block;
-            left: 50%;
-            top: 50%;
-            translate: -150px -50%;
-            background-color: var(--clr-blue-900);
-            z-index: -1;
-            position: absolute;
-            border-radius: 2px;
-            transition: 500ms 500ms;
-          }
-
           span {
             transition: 250ms 750ms;
           }
@@ -69,6 +54,11 @@ $name: ".c-bottom-navigation";
             transition: 200ms 150ms;
 
             color: var(--clr-blue-900);
+
+            &.fa-solid.fa-house {
+              rotate: -20deg;
+              translate: -4px;
+            }
 
             &.fa-solid.fa-star {
               animation: pulse 500ms linear 5;
@@ -90,7 +80,7 @@ $name: ".c-bottom-navigation";
             }
 
             span {
-              color: var(--clr-white);
+              color: var(--clr-blue-900);
             }
           }
         }

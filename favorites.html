@@ -49,6 +49,64 @@
       </div>
     </header>
 
-    <main class="l-bible l-container"></main>
+    <main class="l-bible l-container">
+      <ul class="c-favorite-list"></ul>
+    </main>
+
+    <footer class="l-footer">
+      <p class="l-footer__text">
+        Copyright <span class="l-footer__year">2024</span>. Todos os direitos
+        reservados.
+      </p>
+
+      <nav class="c-bottom-navigation">
+        <ul class="c-bottom-navigation__list">
+          <li class="c-bottom-navigation__list__item">
+            <button
+              data-callback="home"
+              class="c-bottom-navigation__list__item__button"
+            >
+              <i class="fa-solid fa-house"></i>
+              <div>
+                <span>INÍCIO</span>
+              </div>
+            </button>
+          </li>
+          <li class="c-bottom-navigation__list__item">
+            <button
+              data-callback="favorites"
+              class="c-bottom-navigation__list__item__button"
+            >
+              <i class="fa-solid fa-star"></i>
+              <div>
+                <span>FAVORITOS</span>
+              </div>
+            </button>
+          </li>
+          <li class="c-bottom-navigation__list__item">
+            <button
+              data-callback="settings"
+              class="c-bottom-navigation__list__item__button"
+            >
+              <i class="fa-solid fa-gear"></i>
+              <div>
+                <span>CONFIGURAÇÕES</span>
+              </div>
+            </button>
+          </li>
+          <li class="c-bottom-navigation__list__item">
+            <button
+              data-callback="back"
+              class="c-bottom-navigation__list__item__button"
+            >
+              <i class="fa-solid fa-circle-arrow-left"></i>
+              <div>
+                <span>VOLTAR</span>
+              </div>
+            </button>
+          </li>
+        </ul>
+      </nav>
+    </footer>
   </body>
 </html>

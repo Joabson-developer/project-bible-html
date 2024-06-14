@@ -3,6 +3,8 @@
 body {
   --font-family: "M PLUS Rounded 1c", Arial, sans-serif;
   min-height: 100vh;
+  display: flex;
+  flex-direction: column;
   font-family: var(--font-family);
   background-color: var(--clr-blue-100);
   color: var(--clr-dark);
