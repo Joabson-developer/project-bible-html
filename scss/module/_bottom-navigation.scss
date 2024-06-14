@@ -15,6 +15,10 @@ $name: ".c-bottom-navigation";
     height: inherit;
 
     &__item {
+      flex: 1;
+      display: flex;
+      justify-content: center;
+
       &__button {
         $self: &;
         display: flex;
