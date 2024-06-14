@@ -4,6 +4,7 @@ import { LOCAL_PREFIX } from "./modules/consts/local-prefix.js"
 try {
   const data = window.localStorage.getItem(`${LOCAL_PREFIX}:favorites`)
 
+  // TODO: se necessário, criar paginação
   if (data) {
     const favorites = JSON.parse(data) || []
     const elements = favorites
