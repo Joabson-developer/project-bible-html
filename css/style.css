@@ -135,6 +135,11 @@ textarea {
   gap: 8px;
   height: inherit;
 }
+.c-bottom-navigation__list__item {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+}
 .c-bottom-navigation__list__item__button {
   display: flex;
   background-color: transparent;
