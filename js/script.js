@@ -3,7 +3,7 @@ import { LOCAL_PREFIX } from "./modules/consts/local-prefix.js"
 import { getBible } from "./modules/get-bible.js"
 import { hideScrollbar } from "./modules/hide-scrollbar.js"
 import "./modules/pin-header.js"
-import "./modules/set-favorites.js"
+import "./modules/tooltip-control.js"
 import { detectDevice } from "./modules/utils/detect-device.js"
 
 document.addEventListener("DOMContentLoaded", () => {

@@ -1,6 +1,5 @@
 import { LOCAL_PREFIX } from "./consts/local-prefix.js"
 import { observeElements } from "./utils/observe-elements.js"
-import { queryParams } from "./utils/query-params.js"
 const tooltip = document.querySelector(".c-tooltip")
 
 let holdTimeout
@@ -21,7 +20,7 @@ function holdEnd() {
 function getSelectedText() {
   const selectedElements = document.querySelectorAll(".l-bible__text--pending")
   const selectedText = Array.from(selectedElements)
-    .map((verse) => verse.innerText)
+    .map((verse) => verse.dataset.favorite)
     .join("\n")
 
   return `${selectedText}\n\n${window.location.href}`
@@ -29,11 +28,8 @@ function getSelectedText() {
 
 const actions = {
   favorite(currentTarget) {
-    const allFavorites = JSON.parse(
-      localStorage.getItem(`${LOCAL_PREFIX}:favorites`)
-    )
-    const book = queryParams.get("book")
-    const chapter = queryParams.get("chapter")
+    let allFavorites =
+      JSON.parse(localStorage.getItem(`${LOCAL_PREFIX}:favorites`)) || []
 
     const isRemoving = currentTarget.classList.contains(
       "c-tooltip__favorite--active"
@@ -41,20 +37,23 @@ const actions = {
     if (isRemoving) {
       lastSelectedElement.classList.remove("l-bible__text--selected")
       tooltip.setAttribute("aria-hidden", "true")
+      allFavorites = allFavorites.filter(
+        ({ href }) => href !== lastSelectedElement.dataset.href
+      )
     }
 
     const selectedElements = document.querySelectorAll(
       ".l-bible__text--pending, .l-bible__text--selected"
     )
-    const selectedToAddFavorites = Array.from(selectedElements).map(
-      (verse) => verse.querySelector(".l-bible__text__number").innerText
-    )
-    const copyFromAllFavorites = {
-      ...allFavorites,
-      [book]: {
-        [chapter]: selectedToAddFavorites
-      }
-    }
+    const selectedToAddFavorites = Array.from(selectedElements)
+      .filter(
+        (verse) => !allFavorites.some(({ href }) => href === verse.dataset.href)
+      )
+      .map((verse) => ({
+        verse: verse.dataset.favorite,
+        href: verse.dataset.href
+      }))
+    const copyFromAllFavorites = [...allFavorites, ...selectedToAddFavorites]
 
     localStorage.setItem(
       `${LOCAL_PREFIX}:favorites`,
@@ -105,6 +104,9 @@ observeElements({ selectorAll: ".l-bible__text" }, (verses) => {
   verses.forEach((verse) => {
     verse.addEventListener("mousedown", holdStart)
     verse.addEventListener("mouseup", holdEnd)
+
+    verse.addEventListener("touchstart", holdStart)
+    verse.addEventListener("touchend", holdEnd)
   })
 })
 

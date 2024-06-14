@@ -1,8 +1,12 @@
+import { queryParams } from "./utils/query-params.js"
+
 const bottomNavigation = document.querySelectorAll("[data-callback]")
 
 const actions = {
   favorites() {
-    alert("em breve")
+    window.location.href = `/favorites.html?version=${
+      queryParams.get("version") || "acf"
+    }`
   },
   settings() {
     alert("em breve")

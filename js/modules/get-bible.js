@@ -1,11 +1,9 @@
 import { buildBible } from "./build-bible.js"
+import { BASE_URL_API } from "./consts/base-url-api.js"
 import { loading } from "./loader.js"
 import { observeElements } from "./utils/observe-elements.js"
 import { queryParams } from "./utils/query-params.js"
 import { scrollToElement } from "./utils/scroll-to-element.js"
-
-const BASE_URL =
-  "https://bible-api-git-master-joabsondevelopers-projects.vercel.app/api"
 
 function dispatch({ currentTarget }) {
   history.pushState(null, "", currentTarget.dataset.href)
@@ -23,7 +21,7 @@ export async function getBible() {
   loading(true)
 
   try {
-    const response = await fetch(`${BASE_URL}/bible${queryParameters}`)
+    const response = await fetch(`${BASE_URL_API}/bible${queryParameters}`)
     const responseJson = await response.json()
     buildBible(responseJson)
 
