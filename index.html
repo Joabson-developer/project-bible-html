@@ -3,7 +3,8 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Bible Game</title>
+    <!-- TODO: adicionar favicon e PWA -->
+    <title>Bíblia pessoal - início</title>
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
@@ -17,34 +18,35 @@
   </head>
   <body>
     <div data="loading-wrapper" class="s-is-loading">
-      <!-- TODO: fixar o header com background azul ao rolar a pagina -->
       <header class="l-header">
-        <div class="l-header__user l-container">
-          <img
-            class="l-header__logo"
-            src="https://cdn-icons-png.flaticon.com/512/3004/3004416.png"
-            alt="imagem do logotipo do app"
-          />
-          <div class="c-search">
-            <label
-              for="search"
-              class="fa-solid fa-magnifying-glass"
-              aria-label="Buscar..."
-            ></label>
-            <input
-              id="search"
-              class="c-search__input"
-              type="text"
-              placeholder="Buscar..."
-              autocomplete="off"
-            />
-          </div>
-
-          <div class="c-avatar">
+        <div class="l-header__user">
+          <div class="l-header__user__content l-container">
             <img
-              src="https://cdn1.iconfinder.com/data/icons/video-games-flat-design-video-game-icon-with-simpl/114/gaming-boy-512.png"
-              alt="Imagem de perfil do usuário"
+              class="l-header__logo"
+              src="https://cdn-icons-png.flaticon.com/512/3004/3004416.png"
+              alt="imagem do logotipo do app"
             />
+            <div class="c-search">
+              <label
+                for="search"
+                class="fa-solid fa-magnifying-glass"
+                aria-label="Buscar..."
+              ></label>
+              <input
+                id="search"
+                class="c-search__input"
+                type="text"
+                placeholder="Buscar..."
+                autocomplete="off"
+              />
+            </div>
+
+            <div class="c-avatar">
+              <img
+                src="https://cdn1.iconfinder.com/data/icons/video-games-flat-design-video-game-icon-with-simpl/114/gaming-boy-512.png"
+                alt="Imagem de perfil do usuário"
+              />
+            </div>
           </div>
         </div>
 
@@ -82,7 +84,7 @@
         </nav>
       </header>
 
-      <main class="l-main l-container"></main>
+      <main class="l-bible l-container"></main>
 
       <nav class="l-nav-footer l-container">
         <button id="footerButtonLeft" class="l-nav-footer__button" disabled>
@@ -104,6 +106,18 @@
 
         <nav class="c-bottom-navigation">
           <ul class="c-bottom-navigation__list">
+            <li class="c-bottom-navigation__list__item">
+              <button
+                data-callback="home"
+                class="c-bottom-navigation__list__item__button"
+              >
+                <i class="fa-solid fa-house"></i>
+                <div>
+                  <span>INÍCIO</span>
+                </div>
+              </button>
+            </li>
+
             <li class="c-bottom-navigation__list__item">
               <button
                 data-callback="favorites"
@@ -145,6 +159,33 @@
     <!-- TODO: criar um announcer -->
 
     <!-- TODO: criar a splashscreen -->
+
+    <div class="c-tooltip" aria-hidden="true">
+      <button
+        data-action="favorite"
+        class="c-tooltip__favorite"
+        aria-label="adicionar aos favoritos"
+      >
+        <i class="fa-regular fa-star"></i>
+      </button>
+      <button
+        data-action="share"
+        class="c-tooltip__share"
+        aria-label="compartilhar"
+      >
+        <i class="fa-solid fa-share-nodes"></i>
+      </button>
+      <button data-action="copy" class="c-tooltip__copy" aria-label="copiar">
+        <i class="fa-regular fa-copy"></i>
+      </button>
+      <button
+        data-action="cancel"
+        class="c-tooltip__cancel"
+        aria-label="cancelar"
+      >
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+    </div>
 
     <div
       id="loader"

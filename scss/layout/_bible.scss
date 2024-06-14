@@ -3,8 +3,18 @@ $name: ".l-bible";
 #{$name} {
   &__text {
     line-height: 18px;
-    margin-bottom: 4px;
+    padding-bottom: 4px;
     text-align: justify;
+    cursor: default;
+
+    &--pending {
+      background-color: var(--clr-blue-900);
+      color: var(--clr-white);
+    }
+
+    &--selected {
+      background-color: var(--clr-yellow);
+    }
 
     &__number {
       vertical-align: super;

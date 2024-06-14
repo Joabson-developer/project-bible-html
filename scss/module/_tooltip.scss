@@ -1,0 +1,66 @@
+$name: ".c-tooltip";
+
+#{$name} {
+  position: fixed;
+  background-color: var(--clr-blue-100);
+  padding: 4px 8px;
+  min-width: 80px;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  @include box-shadow(0px 2px 5px 0px rgba(0, 0, 0, 0.5));
+
+  &[aria-hidden="true"] {
+    display: none;
+  }
+
+  button {
+    border: none;
+    background-color: transparent;
+    transition: 250ms;
+    cursor: pointer;
+
+    &:hover,
+    &:focus {
+      scale: 1.1;
+    }
+  }
+
+  &__favorite {
+    font-size: 19px;
+
+    &--active {
+      color: var(--clr-yellow);
+
+      i {
+        &::before {
+          font-weight: 900;
+        }
+      }
+    }
+  }
+  &__share {
+    font-size: 17px;
+  }
+  &__copy {
+    font-size: 17px;
+  }
+  &__cancel {
+    color: var(--clr-danger);
+    font-size: 24px;
+  }
+
+  &::before {
+    content: "";
+    position: absolute;
+    display: block;
+    width: 20px;
+    aspect-ratio: 1 / 1;
+    background-color: var(--clr-blue-100);
+    bottom: -4px;
+    rotate: 45deg;
+    z-index: -1;
+  }
+}

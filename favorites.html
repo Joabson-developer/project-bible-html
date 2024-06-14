@@ -3,9 +3,111 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <!-- TODO: adicionar favicon e PWA -->
+    <title>Bíblia pessoal - favoritos</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+      integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="stylesheet" href="./css/style.css" />
+
+    <script src="./js/favorites.js" type="module" defer></script>
   </head>
   <body>
-    Favoritos
+    <header class="l-header">
+      <div class="l-header__user">
+        <div class="l-header__user__content l-container">
+          <img
+            class="l-header__logo"
+            src="https://cdn-icons-png.flaticon.com/512/3004/3004416.png"
+            alt="imagem do logotipo do app"
+          />
+          <div class="c-search">
+            <label
+              for="search"
+              class="fa-solid fa-magnifying-glass"
+              aria-label="Buscar..."
+            ></label>
+            <input
+              id="search"
+              class="c-search__input"
+              type="text"
+              placeholder="Buscar..."
+              autocomplete="off"
+            />
+          </div>
+
+          <div class="c-avatar">
+            <img
+              src="https://cdn1.iconfinder.com/data/icons/video-games-flat-design-video-game-icon-with-simpl/114/gaming-boy-512.png"
+              alt="Imagem de perfil do usuário"
+            />
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <main class="l-bible l-container">
+      <ul class="c-favorite-list"></ul>
+    </main>
+
+    <footer class="l-footer">
+      <p class="l-footer__text">
+        Copyright <span class="l-footer__year">2024</span>. Todos os direitos
+        reservados.
+      </p>
+
+      <nav class="c-bottom-navigation">
+        <ul class="c-bottom-navigation__list">
+          <li class="c-bottom-navigation__list__item">
+            <button
+              data-callback="home"
+              class="c-bottom-navigation__list__item__button"
+            >
+              <i class="fa-solid fa-house"></i>
+              <div>
+                <span>INÍCIO</span>
+              </div>
+            </button>
+          </li>
+          <li class="c-bottom-navigation__list__item">
+            <button
+              data-callback="favorites"
+              class="c-bottom-navigation__list__item__button"
+            >
+              <i class="fa-solid fa-star"></i>
+              <div>
+                <span>FAVORITOS</span>
+              </div>
+            </button>
+          </li>
+          <li class="c-bottom-navigation__list__item">
+            <button
+              data-callback="settings"
+              class="c-bottom-navigation__list__item__button"
+            >
+              <i class="fa-solid fa-gear"></i>
+              <div>
+                <span>CONFIGURAÇÕES</span>
+              </div>
+            </button>
+          </li>
+          <li class="c-bottom-navigation__list__item">
+            <button
+              data-callback="back"
+              class="c-bottom-navigation__list__item__button"
+            >
+              <i class="fa-solid fa-circle-arrow-left"></i>
+              <div>
+                <span>VOLTAR</span>
+              </div>
+            </button>
+          </li>
+        </ul>
+      </nav>
+    </footer>
   </body>
 </html>

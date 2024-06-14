@@ -1,11 +1,15 @@
 $name: ".l-footer";
 
 #{$name} {
-  margin-top: 40px;
+  margin-top: auto;
   text-align: center;
   font-size: 12px;
   height: 80px;
   padding: 16px;
+  flex: 1;
+
+  &__text {
+  }
 
   &::before {
     content: "";
