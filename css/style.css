@@ -21,6 +21,13 @@ img {
   max-width: 100%;
 }
 
+button,
+a,
+input,
+textarea {
+  -webkit-tap-highlight-color: transparent;
+}
+
 :root {
   --clr-green-100: #39b826;
   --clr-blue-100: #edf4fc;

@@ -18,3 +18,10 @@ ul {
 img {
   max-width: 100%;
 }
+
+button,
+a,
+input,
+textarea {
+  -webkit-tap-highlight-color: transparent;
+}
