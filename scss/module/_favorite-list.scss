@@ -1,0 +1,35 @@
+$name: ".c-favorite-list";
+
+#{$name} {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+
+  &__item {
+    $self: &;
+
+    & > * {
+      background: var(--clr-white);
+      border-radius: 8px;
+      border: none;
+      display: flex;
+      flex-direction: column;
+      padding: 16px;
+      @include box-shadow(3px 3px 5px -2px rgba(0, 0, 0, 0.5));
+      transition: 250ms;
+
+      &:hover {
+        @include box-shadow(3px 3px 10px 0px rgba(0, 0, 0, 0.5));
+        scale: 1.01;
+      }
+
+      #{$self}__text {
+        color: var(--clr-grey);
+      }
+      #{$self}__reference {
+        align-self: flex-end;
+        font-weight: 900;
+      }
+    }
+  }
+}
