@@ -8,7 +8,8 @@ let lastSelectedElement
 
 function holdStart({ currentTarget }) {
   holdTimeout = setTimeout(() => {
-    currentTarget.classList.add("l-bible__text--pending")
+    // TODO: corrigir o bug dos favorites
+    // currentTarget.classList.add("l-bible__text--pending")
     lastSelectedElement = currentTarget
   }, TIMEOUT)
 }
@@ -28,6 +29,8 @@ function getSelectedText() {
 
 const actions = {
   favorite(currentTarget) {
+    alert("em breve!")
+    return
     let allFavorites =
       JSON.parse(localStorage.getItem(`${LOCAL_PREFIX}:favorites`)) || []
 
