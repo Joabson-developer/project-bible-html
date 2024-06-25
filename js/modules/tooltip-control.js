@@ -1,5 +1,4 @@
 import { LOCAL_PREFIX } from "./consts/local-prefix.js"
-import { observeElements } from "./utils/observe-elements.js"
 const tooltip = document.querySelector(".c-tooltip")
 
 let holdTimeout
@@ -29,8 +28,6 @@ function getSelectedText() {
 
 const actions = {
   favorite(currentTarget) {
-    alert("em breve!")
-    return
     let allFavorites =
       JSON.parse(localStorage.getItem(`${LOCAL_PREFIX}:favorites`)) || []
 
@@ -38,7 +35,7 @@ const actions = {
       "c-tooltip__favorite--active"
     )
     if (isRemoving) {
-      lastSelectedElement.classList.remove("l-bible__text--selected")
+      lastSelectedElement.classList.remove("l-bible__text--favorite")
       tooltip.setAttribute("aria-hidden", "true")
       allFavorites = allFavorites.filter(
         ({ href }) => href !== lastSelectedElement.dataset.href
@@ -46,7 +43,7 @@ const actions = {
     }
 
     const selectedElements = document.querySelectorAll(
-      ".l-bible__text--pending, .l-bible__text--selected"
+      ".l-bible__text--pending, .l-bible__text--favorite"
     )
     const selectedToAddFavorites = Array.from(selectedElements)
       .filter(
@@ -64,7 +61,7 @@ const actions = {
     )
     selectedElements.forEach((verse) => {
       verse.classList.remove("l-bible__text--pending")
-      verse.classList.add("l-bible__text--selected")
+      verse.classList.add("l-bible__text--favorite")
     })
     currentTarget.classList.toggle("c-tooltip__favorite--active")
   },
@@ -103,40 +100,30 @@ const actions = {
   }
 }
 
-observeElements({ selectorAll: ".l-bible__text" }, (verses) => {
-  verses.forEach((verse) => {
-    verse.addEventListener("mousedown", holdStart)
-    verse.addEventListener("mouseup", holdEnd)
+// document.addEventListener("click", ({ target, clientX, clientY }) => {
+//   const safeArea = tooltip.getElementsByTagName("*")
+//   const clickedOnTheSafeArea = Array.from(safeArea).includes(target)
 
-    verse.addEventListener("touchstart", holdStart)
-    verse.addEventListener("touchend", holdEnd)
-  })
-})
+//   if (
+//     target.classList.contains("l-bible__text--pending") ||
+//     target.classList.contains("l-bible__text--favorite") ||
+//     clickedOnTheSafeArea
+//   ) {
+//     if (!clickedOnTheSafeArea) {
+//       tooltip.style.left = `${clientX - 30}px`
+//       tooltip.style.top = `${clientY - 50}px`
+//       tooltip.setAttribute("aria-hidden", "false")
+//       lastSelectedElement = target
 
-document.addEventListener("click", ({ target, clientX, clientY }) => {
-  const safeArea = tooltip.getElementsByTagName("*")
-  const clickedOnTheSafeArea = Array.from(safeArea).includes(target)
-
-  if (
-    target.classList.contains("l-bible__text--pending") ||
-    target.classList.contains("l-bible__text--selected") ||
-    clickedOnTheSafeArea
-  ) {
-    if (!clickedOnTheSafeArea) {
-      tooltip.style.left = `${clientX - 30}px`
-      tooltip.style.top = `${clientY - 50}px`
-      tooltip.setAttribute("aria-hidden", "false")
-      lastSelectedElement = target
-
-      const favoriteButton = tooltip.querySelector(".c-tooltip__favorite")
-      if (target.classList.contains("l-bible__text--selected"))
-        favoriteButton.classList.add("c-tooltip__favorite--active")
-      else favoriteButton.classList.remove("c-tooltip__favorite--active")
-    }
-  } else {
-    tooltip.setAttribute("aria-hidden", "true")
-  }
-})
+//       const favoriteButton = tooltip.querySelector(".c-tooltip__favorite")
+//       if (target.classList.contains("l-bible__text--favorite"))
+//         favoriteButton.classList.add("c-tooltip__favorite--active")
+//       else favoriteButton.classList.remove("c-tooltip__favorite--active")
+//     }
+//   } else {
+//     tooltip.setAttribute("aria-hidden", "true")
+//   }
+// })
 
 const tooltipActions = tooltip.querySelectorAll("button")
 tooltipActions.forEach((button) => {
@@ -147,4 +134,29 @@ tooltipActions.forEach((button) => {
     }
     actions[currentTarget.dataset.action]()
   })
+})
+
+document.addEventListener("selectionchange", () => {
+  const selectedElements = window.getSelectedElements
+  const targetElements = Array.from(document.querySelectorAll(".l-bible__text"))
+  if (selectedElements.length > 0) {
+    const firstElement =
+      targetElements.find((element) => selectedElements.includes(element)) ||
+      targetElements[0]
+
+    tooltip.style.left = `${window.innerWidth / 2 - 40}px`
+    tooltip.style.top = `${firstElement.getBoundingClientRect().top - 20}px`
+    tooltip.setAttribute("aria-hidden", "false")
+
+    targetElements.forEach((element) => {
+      selectedElements.includes(element)
+        ? element.classList.add("l-bible__text--pending")
+        : element.classList.remove("l-bible__text--pending")
+    })
+  } else {
+    tooltip.setAttribute("aria-hidden", "true")
+    targetElements.forEach((element) =>
+      element.classList.remove("l-bible__text--pending")
+    )
+  }
 })

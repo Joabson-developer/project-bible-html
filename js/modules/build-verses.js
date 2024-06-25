@@ -19,7 +19,7 @@ export function buildVerses(getBook) {
           getBook.abbrev
         }&chapter=${queryParams.get("chapter")}&verse=${verse}`
     )
-      ? "l-bible__text--selected"
+      ? "l-bible__text--favorite"
       : ""
   }" data-favorite="${text} \n ${getBook.book_name} ${queryParams.get(
         "chapter"
