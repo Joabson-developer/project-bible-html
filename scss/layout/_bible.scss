@@ -7,12 +7,7 @@ $name: ".l-bible";
     text-align: justify;
     cursor: default;
 
-    &--pending {
-      background-color: var(--clr-blue-900);
-      color: var(--clr-white);
-    }
-
-    &--selected {
+    &--favorite {
       background-color: var(--clr-yellow);
     }
 
